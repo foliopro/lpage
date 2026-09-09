@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AYP Integral SAS | Seguridad Social y Talento Humano en Colombia</title>
     
     <!-- Open Graph / Meta Tags para WhatsApp y Redes Sociales -->
@@ -12,331 +12,484 @@
     <meta property="og:url" content="https://aypintegralsas.com">
     <meta property="og:type" content="website">
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brandDark: '#0A2540',
-                        brandBlue: '#0083B0',
-                        brandCyan: '#00D2FF',
-                        brandLight: '#F4F6F8'
-                    }
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Estilos Nativos Optimizados para Móviles y PC (Sin bloqueos de CDN) -->
     <style>
-        body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
-        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+        :root {
+            --brand-dark: #0A2540;
+            --brand-blue: #0083B0;
+            --brand-cyan: #00D2FF;
+            --brand-light: #F4F6F8;
+            --text-main: #1e293b;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--brand-light);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-tap-highlight-color: transparent;
+        }
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(10, 37, 64, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #1e293b;
+            color: #ffffff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--brand-blue), var(--brand-cyan));
+            color: white;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+        .desktop-nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        .desktop-nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .desktop-nav a:hover { color: var(--brand-cyan); }
+        .btn-cta-header {
+            background-color: var(--brand-blue);
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .menu-toggle {
+            display: none;
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .mobile-menu {
+            display: none;
+            background-color: var(--brand-dark);
+            border-top: 1px solid #1e293b;
+            padding: 20px;
+        }
+        .mobile-menu a {
+            display: block;
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 12px 0;
+            font-size: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(180deg, var(--brand-dark), #0c2e50, var(--brand-dark));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .hero h1 {
+            font-size: 28px;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        .hero p {
+            font-size: 16px;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+        }
+        .hero img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 1px solid #334155;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+        .btn-main {
+            display: inline-block;
+            background-color: var(--brand-cyan);
+            color: var(--brand-dark);
+            font-weight: bold;
+            padding: 16px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Secciones Generales */
+        .section {
+            padding: 60px 0;
+        }
+        .section-white { background-color: white; }
+        .section-dark { background-color: var(--brand-dark); color: white; }
+        .text-center { text-align: center; }
+        .section-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--brand-dark);
+            margin-bottom: 40px;
+            line-height: 1.2;
+        }
+        .section-dark .section-title { color: white; }
+        .subtitle-tag {
+            font-size: 11px;
+            font-weight: bold;
+            color: var(--brand-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Grid Cards */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        .card {
+            background: var(--brand-light);
+            border: 1px solid #e2e8f0;
+            padding: 24px;
+            border-radius: 16px;
+        }
+        .section-white .card { background: var(--brand-light); }
+        .card h3 {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--brand-dark);
+            margin-bottom: 10px;
+        }
+        .card p {
+            font-size: 14px;
+            color: #475569;
+        }
+
+        /* Respaldo y Footer */
+        .partners {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .partner-badge {
+            background: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 14px;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+        }
+        .contact-box {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 24px;
+            border-radius: 16px;
+            text-align: left;
+            margin: 30px auto;
+            max-width: 500px;
+        }
+        .contact-box p {
+            margin-bottom: 10px;
+            color: white;
+            font-size: 15px;
+        }
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 12px;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #22c55e;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 9999;
+            text-decoration: none;
+        }
+
+        /* Media Queries para Tablet y PC */
+        @media (min-width: 768px) {
+            .menu-toggle { display: none; }
+            .mobile-menu { display: none !important; }
+            .desktop-nav { display: flex; }
+            .hero { padding: 100px 0; text-align: left; }
+            .hero-grid { grid-template-columns: 1.2fr 0.8fr; gap: 60px; }
+            .hero h1 { font-size: 44px; }
+            .hero p { font-size: 18px; }
+            .btn-main { width: auto; }
+            .grid-cards { grid-template-columns: repeat(2, 1fr); }
+            .section-title { font-size: 36px; }
+        }
+        @media (min-width: 1024px) {
+            .grid-cards { grid-template-columns: repeat(4, 1fr); }
+            .services-grid { grid-template-columns: repeat(3, 1fr); }
+        }
     </style>
 </head>
-<body class="bg-brandLight text-slate-800 antialiased selection:bg-brandCyan selection:text-brandDark">
+<body>
 
-    <!-- HEADER / STICKY NAVBAR RESPONSIVE -->
-    <header class="sticky top-0 z-50 bg-brandDark/95 backdrop-blur border-b border-slate-800 text-white shadow-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Logo e Identidad -->
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-brandBlue to-brandCyan flex items-center justify-center font-bold text-white text-xl shadow-lg shrink-0">
-                    AYP
-                </div>
+    <!-- HEADER -->
+    <header>
+        <div class="container nav-bar">
+            <div class="logo-box">
+                <div class="logo-icon">AYP</div>
                 <div>
-                    <span class="text-base sm:text-lg font-bold tracking-wide block leading-tight">AYP INTEGRAL SAS</span>
-                    <span class="text-[10px] sm:text-xs text-brandCyan uppercase tracking-widest font-medium">Servicios Integrales Colombia</span>
+                    <span style="font-size: 15px; font-weight: bold; display: block; line-height: 1.1;">AYP INTEGRAL SAS</span>
+                    <span style="font-size: 9px; color: var(--brand-cyan); text-transform: uppercase; letter-spacing: 1px;">Servicios Colombia</span>
                 </div>
             </div>
-
-            <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                <a href="#servicios" class="hover:text-brandCyan transition">Servicios</a>
-                <a href="#dolores" class="hover:text-brandCyan transition">Soluciones</a>
-                <a href="#actuarial" class="hover:text-brandCyan transition">Cálculos Actuariales</a>
-                <a href="#contacto" class="bg-brandBlue hover:bg-brandBlue/90 text-white px-5 py-2.5 rounded-full shadow-lg transition transform hover:-translate-y-0.5">Contacto Directo</a>
+            <nav class="desktop-nav">
+                <a href="#servicios">Servicios</a>
+                <a href="#dolores">Soluciones</a>
+                <a href="#actuarial">Cálculos Actuariales</a>
+                <a href="#contacto" class="btn-cta-header">Contacto Directo</a>
             </nav>
-
-            <!-- Mobile Hamburger Button -->
-            <div class="md:hidden flex items-center">
-                <button id="menu-btn" class="text-white focus:outline-none p-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:bg-slate-700 transition" aria-label="Abrir Menú">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
+            <button class="menu-toggle" id="menu-btn" aria-label="Menú">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
         </div>
-
-        <!-- Mobile Menu Dropdown (Corregido para Chrome y Brave Android) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-brandDark border-t border-slate-800 px-6 py-6 space-y-4 shadow-2xl w-full">
-            <a href="#servicios" class="mobile-link block text-base font-medium text-slate-200 hover:text-brandCyan transition py-1">Servicios</a>
-            <a href="#dolores" class="mobile-link block text-base font-medium text-slate-200 hover:text-brandCyan transition py-1">Soluciones</a>
-            <a href="#actuarial" class="mobile-link block text-base font-medium text-slate-200 hover:text-brandCyan transition py-1">Cálculos Actuariales</a>
-            <div class="pt-3 border-t border-slate-800">
-                <a href="#contacto" class="mobile-link block w-full text-center bg-brandBlue text-white font-semibold py-3 rounded-xl shadow-lg">Contacto Directo</a>
-            </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#servicios" class="mobile-link">Servicios</a>
+            <a href="#dolores" class="mobile-link">Soluciones</a>
+            <a href="#actuarial" class="mobile-link">Cálculos Actuariales</a>
+            <a href="#contacto" class="mobile-link" style="color: var(--brand-cyan); font-weight: bold;">Contacto Directo</a>
         </div>
     </header>
 
     <!-- HERO SECTION -->
-    <section class="relative bg-gradient-to-b from-brandDark via-[#0c2e50] to-brandDark text-white py-16 lg:py-28 overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#00D2FF_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                <div class="inline-flex items-center space-x-2 bg-brandBlue/20 border border-brandCyan/30 px-3.5 py-1.5 rounded-full text-brandCyan text-xs font-semibold tracking-wider uppercase">
-                    <span class="w-2 h-2 rounded-full bg-brandCyan animate-ping"></span>
-                    <span>Aliados de ARL SURA y AXA Colpatria</span>
+    <section class="hero">
+        <div class="container hero-grid">
+            <div>
+                <div style="display: inline-block; background: rgba(0,210,255,0.1); border: 1px solid rgba(0,210,255,0.3); padding: 6px 14px; border-radius: 50px; color: var(--brand-cyan); font-size: 11px; font-weight: bold; text-transform: uppercase; margin-bottom: 20px;">
+                    Aliados de ARL SURA y AXA Colpatria[cite: 2]
                 </div>
-                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
-                    ¿Y si delegas tu seguridad social y nómina en expertos y te dedicas 100% a hacer crecer tu empresa?
-                </h1>
-                <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                    Blindamos jurídicamente a tu empresa frente a la UGPP, gestionamos tus riesgos ARL con precisión milimétrica (Niveles I al V) y resolvemos cualquier crisis de salud o pensión para recuperar tu tranquilidad.
-                </p>
-                <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                    <a href="https://wa.me/573144492499?text=Hola%20Paola,%20deseo%20asesor%C3%ada%20estrat%C3%A9gica%20sobre%20seguridad%20social" target="_blank" class="w-full sm:w-auto bg-brandCyan text-brandDark font-bold px-8 py-4 rounded-xl shadow-xl hover:bg-white transition text-center flex items-center justify-center space-x-2">
-                        <span>Agenda una Asesoría Gratis</span>
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                    </a>
-                    <a href="#servicios" class="w-full sm:w-auto border border-slate-600 hover:border-brandCyan text-white font-medium px-6 py-4 rounded-xl transition text-center">
-                        Explorar Servicios
-                    </a>
+                <h1>¿Y si delegas tu seguridad social y nómina en expertos y te dedicas 100% a hacer crecer tu empresa?</h1>
+                <p>Blindamos jurídicamente a tu empresa frente a la UGPP[cite: 2], gestionamos tus riesgos ARL con precisión milimétrica (Niveles I al V)[cite: 2] y resolvemos cualquier crisis de salud o pensión.</p>
+                <div>
+                    <a href="https://wa.me/573144492499?text=Hola%20Paola,%20deseo%20asesoría%20estratégica" target="_blank" class="btn-main">Agenda una Asesoría Gratis</a>
                 </div>
             </div>
-            <div class="lg:col-span-5">
-                <div class="relative mx-auto max-w-md lg:max-w-none">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-brandCyan to-brandBlue rounded-2xl blur-lg opacity-30"></div>
-                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop" alt="Empresario tranquilo gestionando con AYP Integral" class="relative rounded-2xl shadow-2xl object-cover w-full h-[320px] sm:h-[380px] border border-slate-700">
-                </div>
+            <div>
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop" alt="Empresario tranquilo">
             </div>
         </div>
     </section>
 
     <!-- DOLORES SECTION -->
-    <section id="dolores" class="py-16 sm:py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-                <h2 class="text-xs font-bold text-brandBlue uppercase tracking-widest mb-3">Diagnóstico Operativo</h2>
-                <p class="text-2xl sm:text-4xl font-extrabold text-brandDark">El verdadero costo oculto de gestionar la Seguridad Social por tu cuenta</p>
+    <section id="dolores" class="section section-white">
+        <div class="container">
+            <div class="text-center" style="max-width: 700px; margin: 0 auto 40px auto;">
+                <span class="subtitle-tag">Diagnóstico Operativo</span>
+                <h2 class="section-title">El verdadero costo oculto de gestionar la Seguridad Social por tu cuenta</h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-brandLight p-8 rounded-2xl border border-slate-200 hover:shadow-xl transition flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center font-bold text-xl mb-6">⚠️</div>
-                        <h3 class="text-xl font-bold text-brandDark mb-3">Empleador sin tiempo</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">¿Sientes que el tiempo se te va en cuadrar planillas, reportar novedades e incapacidades en lugar de liderar tu negocio? Un solo error de cálculo puede costarte severas sanciones de la UGPP.</p>
-                    </div>
+            <div class="grid-cards" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+                <div class="card">
+                    <div style="font-size: 28px; margin-bottom: 15px;">⚠️</div>
+                    <h3>Empleador sin tiempo</h3>
+                    <p>¿Sientes que el tiempo se va en cuadrar planillas y reportar novedades en lugar de liderar[cite: 2]? Evita sanciones de la UGPP.</p>
                 </div>
-                <!-- Card 2 -->
-                <div class="bg-brandLight p-8 rounded-2xl border border-slate-200 hover:shadow-xl transition flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center font-bold text-xl mb-6">🛡️</div>
-                        <h3 class="text-xl font-bold text-brandDark mb-3">Accidentes laborales</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">El miedo latente a que se presente un accidente de trabajo y no saber cómo responder ante la ARL (SURA o Colpatria), activando protocolos a medias que ponen en riesgo la estabilidad jurídica.</p>
-                    </div>
+                <div class="card">
+                    <div style="font-size: 28px; margin-bottom: 15px;">🛡️</div>
+                    <h3>Accidentes laborales</h3>
+                    <p>Respuesta inmediata y correcta ante la ARL (SURA o Colpatria)[cite: 2] sin poner en riesgo la estabilidad jurídica de tu empresa.</p>
                 </div>
-                <!-- Card 3 -->
-                <div class="bg-brandLight p-8 rounded-2xl border border-slate-200 hover:shadow-xl transition flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-blue-100 text-brandBlue rounded-xl flex items-center justify-center font-bold text-xl mb-6">🏛️</div>
-                        <h3 class="text-xl font-bold text-brandDark mb-3">Entidades de control</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">Sentirte desprotegido frente a requerimientos de la Supersalud, periodos en mora o enredos tramitológicos que consumen días enteros de tu operación y generan angustia.</p>
-                    </div>
+                <div class="card">
+                    <div style="font-size: 28px; margin-bottom: 15px;">🏛️</div>
+                    <h3>Entidades de control</h3>
+                    <p>Solucionamos periodos en mora[cite: 2] y requerimientos complejos ante la Superintendencia Nacional de Salud[cite: 2].</p>
                 </div>
-                <!-- Card 4 -->
-                <div class="bg-brandLight p-8 rounded-2xl border border-slate-200 hover:shadow-xl transition flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center font-bold text-xl mb-6">🎯</div>
-                        <h3 class="text-xl font-bold text-brandDark mb-3">Independientes enfocados</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">Perder horas valiosas intentando entender plataformas digitales de aportes, descuidando lo que realmente te genera ingresos: tu talento, tu profesión y tus clientes.</p>
-                    </div>
+                <div class="card">
+                    <div style="font-size: 28px; margin-bottom: 15px;">🎯</div>
+                    <h3>Independientes enfocados</h3>
+                    <p>Deja de enredarte con plataformas digitales de aportes[cite: 2] y dedica tu tiempo a lo que genera ingresos reales.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TRANSFORMACIÓN / PAZ MENTAL -->
-    <section class="py-16 sm:py-20 bg-brandDark text-white relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div class="space-y-6">
-                <span class="text-brandCyan font-bold uppercase tracking-wider text-xs bg-brandCyan/10 px-3 py-1 rounded-full border border-brandCyan/20">Tu Operación en Piloto Automático</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight">Imagina despertar sabiendo que todo tu sistema laboral marcha a la perfección</h2>
-                <p class="text-slate-300 leading-relaxed">
-                    Planillas pagadas sin errores mes a mes, riesgos clasificados impecablemente y certificados para trámites de tu personal emitidos con un solo mensaje. 
-                </p>
-                <div class="space-y-4 pt-2">
-                    <div class="flex items-start space-x-3">
-                        <div class="w-6 h-6 rounded-full bg-brandCyan text-brandDark font-bold flex items-center justify-center text-xs mt-0.5 shrink-0">✓</div>
-                        <p class="text-sm text-slate-200"><strong>Cero estrés ante auditorías:</strong> Respaldo técnico y jurídico absoluto frente a normativas complejas.</p>
-                    </div>
-                    <div class="flex items-start space-x-3">
-                        <div class="w-6 h-6 rounded-full bg-brandCyan text-brandDark font-bold flex items-center justify-center text-xs mt-0.5 shrink-0">✓</div>
-                        <p class="text-sm text-slate-200"><strong>Libertad mental:</strong> Un equipo especialista (AYP Integral) dando la cara por ti ante las entidades.</p>
-                    </div>
-                </div>
+    <!-- TRANSFORMACIÓN -->
+    <section class="section section-dark">
+        <div class="container hero-grid">
+            <div>
+                <span class="subtitle-tag" style="color: var(--brand-cyan);">Piloto Automático</span>
+                <h2 class="section-title">Imagina despertar sabiendo que todo tu sistema laboral marcha a la perfección</h2>
+                <p>Planillas pagadas sin errores mes a mes[cite: 2], riesgos clasificados impecablemente y certificados emitidos de inmediato[cite: 2].</p>
+                <ul style="list-style: none; margin-top: 20px; space-y: 10px;">
+                    <li style="margin-bottom: 10px;">✓ <strong>Cero estrés ante auditorías:</strong> Respaldo técnico y jurídico absoluto.</li>
+                    <li>✓ <strong>Libertad mental:</strong> Un equipo especialista (AYP Integral) dando la cara por ti[cite: 2].</li>
+                </ul>
             </div>
             <div>
-                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop" alt="Equipo de trabajo exitoso y tranquilo" class="rounded-2xl shadow-2xl border border-slate-700 object-cover w-full h-[300px] sm:h-[360px]">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop" alt="Equipo de trabajo" style="width: 100%; height: 300px; object-fit: cover; border-radius: 16px; border: 1px solid #334155;">
             </div>
         </div>
     </section>
 
-    <!-- SERVICIOS INTEGRALES -->
-    <section id="servicios" class="py-16 sm:py-20 bg-brandLight">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-                <h2 class="text-xs font-bold text-brandBlue uppercase tracking-widest mb-3">Oferta de Alto Nivel</h2>
-                <p class="text-2xl sm:text-4xl font-extrabold text-brandDark">Soluciones Integrales para Empresas e Independientes</p>
+    <!-- SERVICIOS -->
+    <section id="servicios" class="section section-white">
+        <div class="container">
+            <div class="text-center" style="max-width: 700px; margin: 0 auto 40px auto;">
+                <span class="subtitle-tag">Oferta de Alto Nivel</span>
+                <h2 class="section-title">Soluciones Integrales para Empresas e Independientes</h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-white p-8 rounded-2xl shadow-md border border-slate-200 hover:border-brandBlue transition flex flex-col justify-between">
-                    <div>
-                        <div class="text-3xl mb-4">🤝</div>
-                        <h3 class="text-xl font-bold text-brandDark mb-3">Gestión de Riesgos ARL y Afiliaciones</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">Aliados estratégicos de <strong>ARL SURA</strong> y <strong>AXA Colpatria</strong>. Cobertura en todos los niveles de riesgo: Nivel I (administrativo) hasta Nivel V (alturas y alta tensión).</p>
-                    </div>
-                    <span class="text-xs font-semibold text-brandBlue uppercase tracking-wider">Cobertura Nacional EPS y Pensiones</span>
+            <div class="grid-cards services-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <div class="card" style="background: white; border: 1px solid #cbd5e1;">
+                    <div style="font-size: 32px; margin-bottom: 15px;">🤝</div>
+                    <h3>Gestión de Riesgos ARL y Afiliaciones</h3>
+                    <p>Aliados estratégicos de ARL SURA y AXA Colpatria[cite: 2]. Cobertura en todos los niveles de riesgo (I al V)[cite: 2], EPS y pensiones a nivel nacional[cite: 2].</p>
                 </div>
-                <!-- Service 2 -->
-                <div class="bg-white p-8 rounded-2xl shadow-md border border-slate-200 hover:border-brandBlue transition flex flex-col justify-between">
-                    <div>
-                        <div class="text-3xl mb-4">📄</div>
-                        <h3 class="text-xl font-bold text-brandDark mb-3">Operativa y Certificados a Demanda</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">Entrega mensual garantizada de las planillas de pago de todos los colaboradores y emisión inmediata de certificados para trámites personales cuando lo requieran.</p>
-                    </div>
-                    <span class="text-xs font-semibold text-brandBlue uppercase tracking-wider">Puntualidad Mensual</span>
+                <div class="card" style="background: white; border: 1px solid #cbd5e1;">
+                    <div style="font-size: 32px; margin-bottom: 15px;">📄</div>
+                    <h3>Operativa y Certificados a Demanda</h3>
+                    <p>Entrega mensual de planillas de pago de todos los colaboradores y emisión ágil de certificados para trámites personales[cite: 2].</p>
                 </div>
-                <!-- Service 3 -->
-                <div class="bg-white p-8 rounded-2xl shadow-md border border-slate-200 hover:border-brandBlue transition flex flex-col justify-between">
-                    <div>
-                        <div class="text-3xl mb-4">⚖️</div>
-                        <h3 class="text-xl font-bold text-brandDark mb-3">Defensa y PQRS ante la Supersalud</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">Gestión experta de citas médicas, autorizaciones trabadas, solución de periodos en mora y trámites formales ante la Superintendencia Nacional de Salud.</p>
-                    </div>
-                    <span class="text-xs font-semibold text-brandBlue uppercase tracking-wider">Soporte Especializado</span>
+                <div class="card" style="background: white; border: 1px solid #cbd5e1;">
+                    <div style="font-size: 32px; margin-bottom: 15px;">⚖️</div>
+                    <h3>Defensa y PQRS ante la Supersalud</h3>
+                    <p>Gestión de citas médicas, autorizaciones trabadas, solución de mora y trámites formales ante la Superintendencia[cite: 2].</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN ESPECIALIZADA: CÁLCULOS ACTUARIALES -->
-    <section id="actuarial" class="py-16 sm:py-20 bg-white border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <!-- CÁLCULOS ACTUARIALES -->
+    <section id="actuarial" class="section section-white" style="border-top: 1px solid #e2e8f0;">
+        <div class="container hero-grid">
             <div>
-                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop" alt="Cálculos actuariales profesionales" class="rounded-2xl shadow-xl object-cover w-full h-[300px] sm:h-[350px] border border-slate-200">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop" alt="Cálculos actuariales" style="width: 100%; height: 320px; object-fit: cover; border-radius: 16px; border: 1px solid #e2e8f0;">
             </div>
-            <div class="space-y-6">
-                <span class="text-xs font-bold text-brandBlue uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-full border border-blue-100">Rigor Técnico Avanzado</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-brandDark">Cálculos Actuariales con Validez Legal y Financiera</h2>
-                <p class="text-slate-600 leading-relaxed">
-                    Para empresas y fondos que exigen precisión matemática absoluta. Realizamos cálculos actuariales para emisión de bonos pensionales, reservas técnicas, pasivos pensionales y omisiones de cotización.
-                </p>
-                <div class="border-l-4 border-brandBlue pl-4 text-slate-700 italic text-sm">
-                    Aportamos el respaldo técnico y jurídico que los revisores fiscales y tribunales exigen, evitando contingencias financieras a largo plazo para tu organización.
+            <div>
+                <span class="subtitle-tag">Rigor Técnico Avanzado</span>
+                <h2 class="section-title">Cálculos Actuariales con Validez Legal y Financiera</h2>
+                <p style="color: #475569; margin-bottom: 20px;">Realizamos cálculos actuariales para emisión de bonos pensionales, reservas técnicas, pasivos pensionales y omisiones de cotización con precisión matemática absoluta.</p>
+                <div style="border-left: 4px solid var(--brand-blue); padding-left: 15px; color: #334155; font-style: italic; font-size: 14px; margin-bottom: 25px;">
+                    Respaldo técnico y jurídico que los tribunales y revisores fiscales exigen para evitar contingencias financieras.
                 </div>
-                <div>
-                    <a href="https://wa.me/573144492499?text=Hola%20Paola,%20necesito%20asesor%C3%ada%20en%20C%C3%alculos%20Actuariales" target="_blank" class="inline-block bg-brandDark text-white font-semibold px-6 py-3 rounded-xl shadow hover:bg-brandBlue transition">
-                        Consultar sobre Cálculos Actuariales
-                    </a>
-                </div>
+                <a href="https://wa.me/573144492499?text=Hola%20Paola,%20necesito%20asesoría%20en%20Cálculos%20Actuariales" target="_blank" class="btn-main" style="background: var(--brand-dark); color: white; display: inline-block;">Consultar Cálculos Actuariales</a>
             </div>
         </div>
     </section>
 
-    <!-- RESPALDO INSTITUCIONAL -->
-    <section class="py-12 sm:py-16 bg-brandLight border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-8">Respaldados por los gigantes de la seguridad social en Colombia</h2>
-            <div class="flex flex-wrap justify-center items-center gap-4 sm:gap-8 md:gap-16 opacity-75 font-bold text-base sm:text-xl text-slate-700">
-                <span class="px-5 py-3 bg-white rounded-xl shadow-sm border border-slate-200">ARL SURA</span>
-                <span class="px-5 py-3 bg-white rounded-xl shadow-sm border border-slate-200">AXA COLPATRIA</span>
-                <span class="px-5 py-3 bg-white rounded-xl shadow-sm border border-slate-200">TODAS LAS EPS</span>
-                <span class="px-5 py-3 bg-white rounded-xl shadow-sm border border-slate-200">FONDOS DE PENSIÓN</span>
+    <!-- RESPALDO -->
+    <section class="section" style="background: var(--brand-light); border-top: 1px solid #e2e8f0; text-align: center;">
+        <div class="container">
+            <span class="subtitle-tag">Confianza Institucional</span>
+            <h2 style="font-size: 18px; color: #64748b; margin-bottom: 20px;">Respaldados por los gigantes de la seguridad social en Colombia[cite: 2]</h2>
+            <div class="partners">
+                <div class="partner-badge">ARL SURA[cite: 2]</div>
+                <div class="partner-badge">AXA COLPATRIA[cite: 2]</div>
+                <div class="partner-badge">TODAS LAS EPS[cite: 2]</div>
+                <div class="partner-badge">FONDOS DE PENSIÓN[cite: 2]</div>
             </div>
         </div>
     </section>
 
     <!-- CONTACTO / CTA FINAL -->
-    <section id="contacto" class="py-16 sm:py-20 bg-gradient-to-tr from-brandDark via-[#082038] to-brandBlue text-white text-center">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Da el primer paso hacia la tranquilidad operativa de tu negocio</h2>
-            <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto">
-                Deja de apagar incendios administrativos y pon la seguridad social de tu equipo en manos de los verdaderos especialistas de Colombia.
-            </p>
-            <div class="bg-white/10 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-white/20 max-w-lg mx-auto space-y-4 text-left">
-                <div class="flex items-center space-x-3">
-                    <span class="text-brandCyan font-bold">Empresa:</span>
-                    <span class="text-white font-medium">AYP Integral SAS</span>
-                </div>
-                <div class="flex items-center space-x-3">
-                    <span class="text-brandCyan font-bold">Ejecutiva:</span>
-                    <span class="text-white font-medium">Paola Andrea Avilés</span>
-                </div>
-                <div class="flex items-center space-x-3">
-                    <span class="text-brandCyan font-bold">Teléfonos:</span>
-                    <span class="text-white font-medium">314 449 2499 - 313 746 5144</span>
-                </div>
-                <div class="flex items-center space-x-3">
-                    <span class="text-brandCyan font-bold">Correo:</span>
-                    <span class="text-white font-medium break-all">aypintegralsas@outlook.com</span>
-                </div>
+    <section id="contacto" class="section section-dark text-center" style="background: linear-gradient(135deg, var(--brand-dark), #082038);">
+        <div class="container" style="max-width: 700px;">
+            <h2 class="section-title">Da el primer paso hacia la tranquilidad operativa de tu negocio</h2>
+            <p style="color: #cbd5e1; margin-bottom: 30px;">Deja de apagar incendios administrativos y pon la seguridad social de tu equipo en manos de los verdaderos especialistas[cite: 2].</p>
+            
+            <div class="contact-box">
+                <p><strong>Empresa:</strong> AYP Integral SAS[cite: 2]</p>
+                <p><strong>Ejecutiva:</strong> Paola Andrea Avilés[cite: 2]</p>
+                <p><strong>Teléfonos:</strong> 314 449 2499 - 313 746 5144[cite: 2]</p>
+                <p><strong>Correo:</strong> aypintegralsas@outlook.com[cite: 2]</p>
             </div>
-            <div>
-                <a href="https://wa.me/573144492499?text=Hola%20Paola,%20deseo%20contratar%20los%20servicios%20de%20AYP%20Integral%20SAS" target="_blank" class="inline-flex items-center justify-center space-x-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 sm:px-8 py-4 rounded-2xl shadow-2xl transition transform hover:scale-105 text-sm sm:text-base w-full sm:w-auto">
-                    <svg class="w-6 h-6 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                    <span>Escribir por WhatsApp a Paola (314 449 2499)</span>
-                </a>
-            </div>
+
+            <a href="https://wa.me/573144492499?text=Hola%20Paola,%20deseo%20contratar%20los%20servicios%20de%20AYP%20Integral" target="_blank" class="btn-main" style="background: #22c55e; color: white; display: inline-block; font-size: 16px;">
+                Escribir por WhatsApp a Paola (314 449 2499)[cite: 2]
+            </a>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-slate-900 text-slate-400 py-8 text-xs">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-            <div class="flex items-center justify-center md:justify-start space-x-3">
-                <div class="w-8 h-8 rounded bg-brandBlue text-white font-bold flex items-center justify-center text-sm">AYP</div>
-                <span class="text-white font-semibold">AYP Integral SAS - Servicios Integrales Colombia</span>
+    <footer>
+        <div class="container" style="display: flex; flex-direction: column; md-direction: row; justify-content: space-between; align-items: center; gap: 15px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 28px; height: 28px; background: var(--brand-blue); color: white; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px;">AYP</div>
+                <span style="color: white; font-weight: bold;">AYP Integral SAS - Colombia[cite: 2]</span>
             </div>
-            <div>
-                <p>&copy; 2026 AYP Integral SAS. Todos los derechos reservados.</p>
-            </div>
+            <p>&copy; 2026 AYP Integral SAS. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Widget -->
-    <a href="https://wa.me/573144492499?text=Hola%20Paola,%20estoy%20visitando%20la%20web%20y%20necesito%20información" target="_blank" class="fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-600 text-white p-4 rounded-full shadow-2xl transition transform hover:scale-110 flex items-center justify-center" aria-label="WhatsApp Chat">
-        <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://wa.me/573144492499?text=Hola%20Paola,%20estoy%20en%20la%20web%20y%20necesito%20info" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+        <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
     </a>
 
-    <!-- Script optimizado para eventos táctiles móviles (Chrome y Brave) -->
+    <!-- Script de Menú Móvil Nativo -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuBtn = document.getElementById('menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileLinks = document.querySelectorAll('.mobile-link');
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
 
-            if (menuBtn && mobileMenu) {
-                menuBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    mobileMenu.classList.toggle('hidden');
-                });
-
-                mobileLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.add('hidden');
-                    });
-                });
-
-                // Cierra el menú si se toca fuera de él en dispositivos móviles
-                document.addEventListener('click', (e) => {
-                    if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                });
+        menuBtn.addEventListener('click', () => {
+            if (mobileMenu.style.display === 'block') {
+                mobileMenu.style.display = 'none';
+            } else {
+                mobileMenu.style.display = 'block';
             }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.style.display = 'none';
+            });
         });
     </script>
 </body>
